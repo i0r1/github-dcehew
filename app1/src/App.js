@@ -1,6 +1,7 @@
-import { createInstance, OptimizelyProvider } from "@optimizely/react-sdk";
-import React, {Suspense} from "react";
-const RemoteApp = React.lazy(() => import("app2/App"));
+import { createInstance, OptimizelyProvider } from '@optimizely/react-sdk';
+import React, { Suspense } from 'react';
+import { optimize } from 'webpack';
+const RemoteApp = React.lazy(() => import('app2/App'));
 
 const App = () => {
   const optimizely = createInstance({
@@ -11,31 +12,34 @@ const App = () => {
   });
   return (
     <div>
-              <OptimizelyProvider
-              optimizely={optimizely}
-              timeout={500000}
-              user={{
-                id: 'user123',
-                attributes: {
-                  device: 'iPhone',
-                  lifetime: 24738388,
-                  is_logged_in: true,
-                },
-              }}>
-      <div style={{
-        margin:"10px",
-        padding:"10px",
-        textAlign:"center",
-        backgroundColor:"greenyellow"
-      }}>
-        <h1>App1</h1>
-      </div>
-      <Suspense fallback={"loading..."}>
-        <RemoteApp/>
-      </Suspense>
+      <OptimizelyProvider
+        optimizely={optimizely}
+        timeout={500000}
+        user={{
+          id: 'user123',
+          attributes: {
+            device: 'iPhone',
+            lifetime: 24738388,
+            is_logged_in: true,
+          },
+        }}
+      >
+        <div
+          style={{
+            margin: '10px',
+            padding: '10px',
+            textAlign: 'center',
+            backgroundColor: 'greenyellow',
+          }}
+        >
+          <h1>App1</h1>
+        </div>
+        <Suspense fallback={'loading...'}>
+          <RemoteApp optimizely={optimizely} />
+        </Suspense>
       </OptimizelyProvider>
-    </div>)
-}
-
+    </div>
+  );
+};
 
 export default App;
