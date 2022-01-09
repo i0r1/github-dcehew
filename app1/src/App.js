@@ -1,6 +1,5 @@
 import { createInstance, OptimizelyProvider } from '@optimizely/react-sdk';
 import React, { Suspense } from 'react';
-import { optimize } from 'webpack';
 const RemoteApp = React.lazy(() => import('app2/App'));
 
 const App = () => {
