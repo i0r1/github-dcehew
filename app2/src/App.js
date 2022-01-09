@@ -1,9 +1,9 @@
 import React from 'react';
 import { useFeature } from '@optimizely/react-sdk';
 
-const App = () => {
+const App = (props) => {
   // const [isFeatureEnabled, variables] = useFeature('analytics_page', {});
-  // console.log(isFeatureEnabled);
+  console.log(props);
   return (
     <div
       style={{
