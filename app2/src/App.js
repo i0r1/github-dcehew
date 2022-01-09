@@ -3,7 +3,7 @@ import { useFeature } from '@optimizely/react-sdk';
 
 const App = () => {
   // const [isFeatureEnabled, variables] = useFeature('analytics_page', {});
-  console.log(isFeatureEnabled);
+  // console.log(isFeatureEnabled);
   return (
     <div
       style={{
